@@ -21,12 +21,13 @@ class GmailSmtp
     return true
   end
   def send()
+    subject = @subject
     body = @body
     to_mail = @to_mail
     message =
       @gmail.generate_message do
         to to_mail
-        subject @subject
+        subject subject
         text_part do
           body body
         end
